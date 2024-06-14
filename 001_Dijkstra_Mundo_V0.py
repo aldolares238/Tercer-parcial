@@ -17,14 +17,14 @@ grafo = {
     'F': {'C': 2, 'E': 5}
 }
 
-def dijkstra(grafo, inicio, fin):
+def dijkstra(grafo, inicio, fin): #Definición de la funcion para la busqueda
     distancias = {nodo: float('infinity') for nodo in grafo}
     distancias[inicio] = 0
     padres = {nodo: None for nodo in grafo}
     
     cola_prioridad = [(0, inicio)]
     
-    while cola_prioridad:
+    while cola_prioridad: #Añadimos el ciclo para la prioridad del camino
         distancia_actual, nodo_actual = heapq.heappop(cola_prioridad)
         
         if nodo_actual == fin:
@@ -33,7 +33,7 @@ def dijkstra(grafo, inicio, fin):
         if distancia_actual > distancias[nodo_actual]:
             continue
         
-        for vecino, peso in grafo[nodo_actual].items():
+        for vecino, peso in grafo[nodo_actual].items(): 
             distancia = distancia_actual + peso
             
             if distancia < distancias[vecino]:
@@ -50,7 +50,7 @@ def dijkstra(grafo, inicio, fin):
     
     return distancias, camino
 
-def mostrar_grafo(grafo, ruta, peso_total):
+def mostrar_grafo(grafo, ruta, peso_total): #Funcion para mostrar el grafo al usuario
     G = nx.Graph()
     
     for nodo in grafo:
