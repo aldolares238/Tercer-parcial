@@ -18,7 +18,7 @@ grafo = {
     'Emergencia': {}
 }
 
-def dijkstra(grafo, inicio, fin):
+def dijkstra(grafo, inicio, fin): #Definimos la busqueda
     distancias = {nodo: float('infinity') for nodo in grafo}
     distancias[inicio] = 0
     padres = {nodo: None for nodo in grafo}
@@ -51,7 +51,7 @@ def dijkstra(grafo, inicio, fin):
     
     return distancias[fin], camino
 
-def mostrar_grafo(grafo, ruta, peso_total):
+def mostrar_grafo(grafo, ruta, peso_total): #Mostramos el grafo
     G = nx.Graph()
     
     for nodo in grafo:
